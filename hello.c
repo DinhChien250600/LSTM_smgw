@@ -61,9 +61,9 @@ int main(int argc, char *argv[]) {
     if (py_result == NULL) {
     printf("ERROR call function\n");
     exit(-1);
-    }                 
+    }
     /* converting python result to int in c*/
-    float result  =  (float) PyLong_AsLong(py_result);
+    float result  =  (float) PyFloat_AsDouble(py_result);
     printf("Result predict: %.2f\n", result);
     /* teatdown */
     Py_FinalizeEx();
