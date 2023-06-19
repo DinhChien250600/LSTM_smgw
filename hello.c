@@ -47,9 +47,11 @@ int main(int argc, char *argv[]) {
     }
     
     printf("Data receive: %.1f\n", data_split[0]);
-    PyObject* args = Py_BuildValue("ii",(int)data_split[0],26);
+    //PyObject* args = Py_BuildValue("ii",(int)data_split[0],26);
+    PyObject* args = Py_BuildValue("iiiiiiii", 26, 27,28,29,30,31,32,33);
+    
     // py_function = getattr("add", "add_function")
-    PyObject* py_function = PyObject_GetAttrString(py_module,(char*)"predict_params");   
+    PyObject* py_function = PyObject_GetAttrString(py_module,(char*)"predict_list_params");   
     
     if (py_function == NULL) {
     printf("ERROR get function\n");
@@ -63,8 +65,9 @@ int main(int argc, char *argv[]) {
     exit(-1);
     }
     /* converting python result to int in c*/
-    float result  =  (float) PyFloat_AsDouble(py_result);
-    printf("Result predict: %.2f\n", result);
+    //char* result  =  (char*) PyFloat_AsDouble(py_result);
+    //const char* result  = PyUnicode_AsUTF8(py_result);
+    printf("Result predict: %s\n", PyUnicode_AsUTF8(py_result));
     /* teatdown */
     Py_FinalizeEx();
     return 0;

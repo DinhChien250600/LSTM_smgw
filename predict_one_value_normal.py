@@ -17,7 +17,7 @@ def predict_params(input,a):
     
     inputs_scale = inputs_scale.reshape(1,60,1)
     
-    RNN_model = load_model('./LSTM_model/LSTM_model_4_temp.h5', compile=False)
+    RNN_model = load_model('./LSTM_model/GRU_temp.h5', compile=False)
     
     print("Model is predict...")
     

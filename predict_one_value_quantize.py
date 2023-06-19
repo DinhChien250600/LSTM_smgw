@@ -16,7 +16,7 @@ def predict_params(input,a):
     inputs_scale = inputs_scale.reshape(1,60,1)
     
     # Load TFLite model and allocate tensors.
-    interpreter = Interpreter(model_path="./LSTM_model/LSTM_model_2_temp_float16.tflite")
+    interpreter = Interpreter(model_path="./LSTM_model/LSTM_model_2_temp.tflite")
     interpreter.allocate_tensors()
     
     # Get input and output tensors.
